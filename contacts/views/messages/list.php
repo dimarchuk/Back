@@ -18,12 +18,12 @@
     </form>
 
     <table>
-        <!--    --><?php //foreach ($messages as $message) : ?>
-        <!--        <tr>-->
-        <!--            <td>--><? //= $message['author'] ?><!--</td>-->
-        <!--            <td>--><? //= $message['message'] ?><!--</td>-->
-        <!--        </tr>-->
-        <!--    --><?php //endforeach; ?>
+            <?php foreach ($messages as $message) : ?>
+                <tr>
+                    <td><?= $message['author'] ?></td>
+                    <td><?= $message['message'] ?></td>
+                </tr>
+            <?php endforeach; ?>
     </table>
 
 </main>
