@@ -155,37 +155,6 @@
               <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="0812.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="configs" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="0812.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="core" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="0812.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="storage" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="0812.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="0812.local" type="b2602c69:ProjectViewProjectNode" />
-              <item name="0812.local" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="contacts" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="messages" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -221,12 +190,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519496106903</updated>
-      <workItem from="1519496108252" duration="8556000" />
+      <workItem from="1519496108252" duration="9171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8556000" />
+    <option name="totallyTimeSpent" value="9171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
