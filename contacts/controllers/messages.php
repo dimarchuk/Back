@@ -15,7 +15,7 @@ function actionList()
         $messages[] = array_merge(['id' => $file], $data);
     }
 
-    render('/messages/list', ['messages' => $messages]);
+    return render('/messages/list', ['messages' => $messages]);
 }
 
 function actionCreate()

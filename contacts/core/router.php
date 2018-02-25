@@ -6,10 +6,10 @@ function dispatch($url, $controllersPath, $baseUrl = null)
         $url = substr($url, strlen($baseUrl));
     }
 
-//    $getParamsStart = stripos($url, '?');
-//    if ($getParamsStart !== false) {
-//        $url = substr($url, 0, $getParamsStart);
-//    }
+    $getParamsStart = stripos($url, '?');
+    if ($getParamsStart !== false) {
+        $url = substr($url, 0, $getParamsStart);
+    }
 
     $parts = explode('/', trim($url, '/'));
 
@@ -30,5 +30,5 @@ function dispatch($url, $controllersPath, $baseUrl = null)
     }
 
 
-    $action();
+    return $action();
 }
