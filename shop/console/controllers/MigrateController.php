@@ -55,7 +55,7 @@ PHP;
     public function actionUp()
     {
         $executed = $this->getModel()->getExecuted();
-        $all = FileHelper::getList(Application::get()->param('migrations.dir'));
+        $all = FileHelper::getList(Application::get()->param('migrations.dir'), false);
         $new = array_diff($all, $executed);
 
         if (empty($new)) {
@@ -75,7 +75,8 @@ PHP;
             }
 
             $object->up();
-            $this->lineOut("Migration {$name} done");
+            $this->getModel()->up($name);
+            echo $this->lineOut("Migration {$name} done");
         }
 
         return $this->lineOut("DB is up to date");

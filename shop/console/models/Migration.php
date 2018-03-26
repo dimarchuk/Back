@@ -61,6 +61,14 @@ SQL;
         $stmt = $this->getConnection()->prepare($sql);
         $result = $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+
+    public function up($name)
+    {
+        $sql = "INSERT INTO {$this->tableName()} (migration) VALUES (:migration)";
+        $stmt = $this->getConnection()->prepare($sql);
+        $stmt->bindParam(':migration', $name, PDO::PARAM_STR);
+        $stmt->execute();
     }
 }
