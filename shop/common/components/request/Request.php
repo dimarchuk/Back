@@ -2,6 +2,9 @@
 
 namespace app\common\components\request;
 
+use Exception;
+use app\common\Application;
+use app\common\helper\StringHelper;
 use app\common\components\Controller;
 
 /**
@@ -41,7 +44,7 @@ abstract class Request
         $this->parse();
     }
 
-    protected abstract function parse(): void;
+    protected abstract function parse();//: void;
 
     /**
      * @return Controller
@@ -67,4 +70,52 @@ abstract class Request
         return $this->params;
     }
 
+    /**
+     * @param string|null $part
+     * @return Controller
+     * @throws Exception
+     */
+    protected function prepareController(string $part = null): Controller
+    {
+        $part = $part ?: Application::get()->param('controllers.default');
+
+        $class = vsprintf('%s\%sController', [
+            Application::get()->param('controllers.namespace'),
+            StringHelper::camelize($part)
+        ]);
+
+        if (!class_exists($class)) {
+            throw new Exception("Controller {$part} is not exists");
+        }
+
+        $controllerObject = new $class();
+        if (!$controllerObject instanceof Controller) {
+            throw new Exception("Controller {$part} is invalid");
+        }
+
+        return new $class();
+    }
+
+    /**
+     * @param string|null $part
+     * @return string
+     * @throws Exception
+     */
+    protected function prepareAction(string $part = null): string
+    {
+        $part = $part ?: Application::get()->param('actions.default');
+        $action = 'Action' . StringHelper::camelize($part);
+
+        if (!method_exists($this->controller, $action)) {
+            throw new Exception("Method {$part} is not exists");
+        }
+
+        return $action;
+    }
+
+    /**
+     * @param mixed $params
+     * @return array
+     */
+    protected abstract function prepareParams($params): array;
 }
