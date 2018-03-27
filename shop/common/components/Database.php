@@ -2,6 +2,7 @@
 
 namespace app\common\components;
 
+use Dump\Dump;
 use PDO;
 use app\common\components\db\Builder;
 use app\common\components\db\commands\{

@@ -23,6 +23,18 @@ class Update extends AbstractCommands
 
         $this->sql = 'UPDATE ' . $this->table . ' SET ' . implode(', ', $attributes);
 
-        new Dump($this->sql);exit;
+        if ($this->conditions) {
+            $this->sql .= ' WHERE ';
+
+            $conditions = [];
+            foreach ($this->conditions as $column => $condition) {
+                $conditionAttribute = ":{$column}";
+                $conditions[] = "{$column} = {$conditionAttribute}";
+                $this->params[$conditionAttribute] = $condition;
+            }
+
+            $this->sql .= implode(' AND ',$conditions);
+        }
+
     }
 }

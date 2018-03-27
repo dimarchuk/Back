@@ -2,6 +2,8 @@
 
 namespace app\common\components\db\commands;
 
+use app\common\Application;
+use Dump\Dump;
 use PDO;
 
 /**
@@ -77,20 +79,44 @@ abstract class AbstractCommands
      */
     public function where(array $conditions): AbstractCommands
     {
-        $this->conditions = $conditions;
+        $this->conditions[] = $conditions;
         return $this;
     }
 
     /**
+     * @param array $conditions
+     * @return AbstractCommands
+     */
+    public function andWhere(array $conditions): AbstractCommands
+    {
+        $this->conditions[] = $conditions;
+        return $this;
+    }
+
+    /**
+     * @param array $conditions
+     * @return AbstractCommands
+     */
+    public function orWhere(array $conditions): AbstractCommands
+    {
+        $this->conditions[] = $conditions;
+        return $this;
+    }
+
+
+    /**
      * @return bool
      */
-    public function execute(): bool
+    public function execute($debug = false): bool
     {
         $this->prepare();
-        exit;
 
         $stmt = $this->connection->prepare($this->sql);
         $rezult = $stmt->execute($this->params);
+
+        if ($debug === true) {
+            new Dump($this->connection->errorInfo());
+        }
 
         return $rezult;
     }

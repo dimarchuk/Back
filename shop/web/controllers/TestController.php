@@ -26,8 +26,14 @@ class TestController extends Controller
 
         $rezult = Application::get()
             ->getDb()
-            ->update('test', ['title' => 'updated', 'author' => 'other man'], ['id' => 3])
-            ->execute();
+            ->update(
+                'test',
+                ['title' => 'updated w', 'author' => 'other man 2'],
+                [
+                    ['id', '=', 2],
+                    ['id', '>', 4]
+                ]
+            )->execute();
 
         new Dump($rezult);
         exit;
