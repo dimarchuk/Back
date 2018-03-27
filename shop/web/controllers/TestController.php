@@ -2,7 +2,9 @@
 
 namespace app\web\controllers;
 
+use app\common\Application;
 use app\common\components\Controller;
+use Dump\Dump;
 
 /**
  * Class TestController
@@ -10,8 +12,24 @@ use app\common\components\Controller;
  */
 class TestController extends Controller
 {
+    /**
+     * @throws \Exception
+     */
     public function actionQwerty()
     {
-        var_dump("I am here");
+//        $rezult = Application::get()
+//            ->getDb()
+//            ->insert('test', [
+//                    'title' => 'some 2',
+//                    'author' => 'Dima 2']
+//            )->execute();
+
+        $rezult = Application::get()
+            ->getDb()
+            ->update('test', ['title' => 'updated', 'author' => 'other man'], ['id' => 3])
+            ->execute();
+
+        new Dump($rezult);
+        exit;
     }
 }
