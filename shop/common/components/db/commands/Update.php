@@ -2,11 +2,13 @@
 
 namespace app\common\components\db\commands;
 
+use Dump\Dump;
+
 /**
- * Class Insert
+ * Class Update
  * @package app\common\components\db\commands
  */
-class Insert extends AbstractCommands
+class Update extends AbstractCommands
 {
     public function prepare()
     {
@@ -15,11 +17,12 @@ class Insert extends AbstractCommands
         $attributes = [];
         foreach ($keys as $key) {
             $attribute = ":{$key}";
-            $attributes[] = $attribute;
+            $attributes[] = "{$key} = {$attribute}";
             $this->params[$attribute] = $this->collumns[$key];
         }
 
+        $this->sql = 'UPDATE ' . $this->table . ' SET ' . implode(', ', $attributes);
 
-        $this->sql = 'INSERT INTO ' . $this->table . '(' . implode(', ', $keys) . ') VALUES (' . implode(', ', $attributes) . ')';
+        new Dump($this->sql);exit;
     }
 }

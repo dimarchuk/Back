@@ -4,8 +4,9 @@ namespace app\common\components\db;
 
 use PDO;
 use app\common\components\db\commands\{
-    AbstractCommands, Insert
+    AbstractCommands, Insert, Update
 };
+use Exception;
 
 /**
  * Class Builder
@@ -21,14 +22,32 @@ class Builder
 
     /**
      * @param string $command
+     * @return string
+     * @throws Exception
+     */
+    private static function getCommand(string $command): string
+    {
+        $commands = [
+            self::INSERT => Insert::class,
+            self::UPDATE => Update::class
+        ];
+
+        if (!array_key_exists($command, $commands)) {
+            throw new Exception("Unknown command {$command}");
+        }
+
+        return $commands[$command];
+    }
+
+    /**
+     * @param string $command
      * @param PDO $connection
      * @return AbstractCommands
+     * @throws Exception
      */
     public static function build(string $command, PDO $connection): AbstractCommands
     {
-        switch ($command) {
-            case self::INSERT:
-                return new Insert($connection);
-        }
+        $class = self::getCommand($command);
+        return new $class($connection);
     }
 }

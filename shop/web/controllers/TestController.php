@@ -12,14 +12,22 @@ use Dump\Dump;
  */
 class TestController extends Controller
 {
+    /**
+     * @throws \Exception
+     */
     public function actionQwerty()
     {
+//        $rezult = Application::get()
+//            ->getDb()
+//            ->insert('test', [
+//                    'title' => 'some 2',
+//                    'author' => 'Dima 2']
+//            )->execute();
+
         $rezult = Application::get()
             ->getDb()
-            ->insert('test', [
-                    'title' => 'some 2',
-                    'author' => 'Dima 2']
-            )->execute();
+            ->update('test', ['title' => 'updated', 'author' => 'other man'], ['id' => 3])
+            ->execute();
 
         new Dump($rezult);
         exit;
