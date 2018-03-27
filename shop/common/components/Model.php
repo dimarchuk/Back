@@ -17,6 +17,6 @@ class Model
      */
     protected function getConnection(): PDO
     {
-       return Application::get()->getDb();
+        return Application::get()->getDb();
     }
 }

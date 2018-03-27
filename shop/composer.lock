@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "13b54610d07c3cc0ae841aaf3b9bcb61",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "ghostff/dump5",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ghostff/Dump5.git",
+                "reference": "fb9f28cadec097bde6a380e4d5e021384ec6ce29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ghostff/Dump5/zipball/fb9f28cadec097bde6a380e4d5e021384ec6ce29",
+                "reference": "fb9f28cadec097bde6a380e4d5e021384ec6ce29",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dump\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Chrys Ugwu",
+                    "email": "frankchris@hotmail.com"
+                }
+            ],
+            "description": "A pretty version of php var_dump. This class displays structured information about one or more expressions that includes its type and value.",
+            "keywords": [
+                "data_dump",
+                "debuger",
+                "var_dump"
+            ],
+            "time": "2017-10-10T17:38:59+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
